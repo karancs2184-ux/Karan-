@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agni's Portfolio</title>
+<meta name="description" content="Agni's Portfolio - Web Developer, Designer, and Coder.">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #f0f0f0;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    header {
+        background: #222;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: #111;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: #fff;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+        background: #ff5000;
+    }
+
+    section {
+        padding: 50px 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    /* Home Section */
+    .home {
+        background: #ff4500;
+        color: #fff;
+        text-align: center;
+        border-radius: 10px;
+        margin: 20px auto;
+        padding: 60px 20px;
+    }
+
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 6px solid #fff;
+        animation: glow 1.5s infinite alternate;
+        margin-bottom: 20px;
+    }
+
+    .profile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @keyframes glow {
+        0% { box-shadow: 0 0 15px #ff0000; }
+        50% { box-shadow: 0 0 25px #00ff00; }
+        100% { box-shadow: 0 0 15px #00ffff; }
+    }
+
+    .name {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        animation: colorChange 2s infinite alternate;
+    }
+
+    @keyframes colorChange {
+        0% { color: #ff0000; }
+        33% { color: #00ff00; }
+        66% { color: #00ffff; }
+        100% { color: #ff00ff; }
+    }
+
+    /* Section Cards */
+    .about, .certificates, .vitae, .projects, .experience, .achievements, .contact {
+        background: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 30px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff4500;
+    }
+
+    /* Certificates */
+    .certificates ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        list-style: none;
+    }
+    .certificates li {
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+    }
+    .certificates img {
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    /* Vitae */
+    .vitae .skills span {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background: #ff4500;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Projects */
+    .projects ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        list-style: none;
+    }
+    .projects li {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    .projects img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .projects a {
+        text-decoration: none;
+        color: #ff4500;
+        font-weight: bold;
+    }
+
+    /* Experience */
+    .experience ul {
+        list-style: square inside;
+        font-size: 16px;
+    }
+
+    /* Achievements */
+    .achievements ul {
+        list-style: disc inside;
+        font-size: 16px;
+    }
+
+    /* Skill Progress Bars */
+    .skill-bar {
+        background: #ddd;
+        border-radius: 25px;
+        margin: 10px 0;
+        overflow: hidden;
+    }
+    .skill-fill {
+        height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .html { width: 90%; background: #ff4500; }
+    .css { width: 75%; background: #0077ff; }
+    .java { width: 65%; background: #ff9800; }
+
+    /* Contact */
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: auto;
+    }
+    .contact input, .contact textarea {
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .contact button {
+        padding: 12px;
+        background: #ff4500;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .contact button:hover {
+        background: #e63900;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #111;
+        color: #fff;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+        nav a { font-size: 16px; padding: 10px; }
+        .profile { width: 150px; height: 150px; }
+    }
+</style>
+</head>
+<body>
+
+<header>Agni's Portfolio</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#vitae">Vitae</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Home -->
+<section class="home" id="home">
+    <div class="profile-container">
+        <div class="profile">
+            <img src="/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WallPaper/IMG_20250825_121032.jpg" alt="Profile"> <!-- Replace with your image -->
+        </div>
+        <div class="name">AGNI</div>
+    </div>
+    <h1>Hello, I'm Agni</h1>
+    <p>Welcome to my portfolio</p>
+    <p>Aspiring Web Developer | Designer | Coder</p>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm Agni, passionate about creating modern websites and applications.
+       I love learning new technologies and building interactive, user-friendly designs.</p>
+</section>
+
+<!-- Certificates -->
+<section class="certificates" id="certificates">
+    <h2>Certificates</h2>
+    <ul>
+        <li>Web Development Basics<br><img src="certificate1.jpg" alt="Certificate"></li>
+        <li>Developing Sites for Web<br><img src="certificate2.jpg" alt="Certificate"></li>
+        <li>HTML & CSS<br><img src="certificate3.jpg" alt="Certificate"></li>
+        <li>Front-End Development<br><img src="certificate4.jpg" alt="Certificate"></li>
+    </ul>
+</section>
+
+<!-- Vitae -->
+
+    <section class="vitae" id="vitae">
+    <h2>Curriculum Vitae</h2>
+    <div class="personal-info">
+        <img src="/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WallPaper/IMG_20250825_121032.jpg" width="100" height="100" 
+            <br>
+        <p><strong>Name :</strong> Karan P</p>
+        <p><strong>Address :</strong>  Dharmapuri </p>
+        <p><strong>Email :</strong> <a href="mailto:agni@example.com">agni@example.com</a></p>
+        <p><strong>Age :</strong> 19 (Major)</p>
+        <p><strong>Gender : </strong> Male </p>
+        <p><strong>Father :</strong> Perumal</p>
+        <p><strong>Mother :</strong> Munirathinam</p>
+        <p><strong>Brother :</strong> Hakash</p>
+        <p><strong>Siblings :</strong> 1</p>
+        <p><strong>Marital Status :</strong> Single</p>
+        <p><strong>Known Languages :</strong> Tamil, English</p>
+        <p><strong>Degree Graduated :</strong> No</p>
+        <p><strong>First Graduate : </strong> Yes</p>
+        <p><strong>Extra Curricular Activities :</strong> Sports, Gaming, Cooking, Dancing, etc.</p>
+        
+        
+    </div>
+    <br>
+
+    <div class="education">
+        <h3>School Education</h3>
+        <ul>
+            <li>10th : Government Higher Secondary School, Amani mallapuram </li>
+            <li>Percentage : 63.2%</li>
+            <li>12th : Government Higher Secondary School, Amani mallapuram</li>
+            <li>Percentage : 63.1%</li>
+            <br>
+            <div class="education">
+            <h4>College Education</h4>
+            
+      
+            <li>(B.Sc Computer Science)
+              <br>Govt arts and science college,Anthiyur,Bharathiyar University - Coimbatore</li>
+        </ul>
+    </div>
+        </div>
+    <br>
+    <div class="skill-bar"><div class="skill-fill html">HTML - 90%</div></div>
+    <div class="skill-bar"><div class="skill-fill css">CSS - 75%</div></div>
+    <div class="skill-bar"><div class="skill-fill java">Java - 65%</div></div>
+</section>
+
+<!-- Projects -->
+<section class="projects" id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li><img src="project1.jpg" alt="Project"><br><a href="#">Portfolio Website</a></li>
+        <li><img src="project2.jpg" alt="Project"><br><a href="#">Registration Form</a></li>
+        <li><img src="project3.jpg" alt="Project"><br><a href="#">Blog Template</a></li>
+    </ul>
+</section>
+
+<!-- Experience -->
+<section class="experience" id="experience">
+    <h2>Experience</h2>
+    <ul>
+        <li>Internship at Yectra technologies,Kovai- Web Development (2024)</li>
+        <li>Freelancer - Built websites for small businesses</li>
+    </ul>
+</section>
+
+<!-- Achievements -->
+<section class="achievements" id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+        <li>Winner - Coding Competition 2023</li>
+        <li>Top Performer - Web Development Bootcamp</li>
+        <li>Certificate of Excellence in HTML & CSS</li>
+    </ul>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>📧 Email: karancs2184@mail.com</p>
+    <p>📞 Phone: +91 9597942184</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 Agni. All Rights Reserved.
+</footer>
+</body>
+</html>
